@@ -2,7 +2,9 @@
 
 An Android mobile application for real-time detection and multi-label classification of banana leaf diseases using edge computer vision and on-device machine learning models.
 
-> 📘 **Looking for the step-by-step setup guide and field manual?** Check out the complete [INSTRUCTIONS.md](INSTRUCTIONS.md).
+> 📘 **Documentation & Guides:**
+> - [INSTRUCTIONS.md](INSTRUCTIONS.md) — Step-by-step developer setup, Google Antigravity guide, USB debugging & field scanning manual.
+> - [RETRAINING_GUIDE.md](RETRAINING_GUIDE.md) — Retraining in Google Colab & locally, plus automated Antigravity AI prompts and manual checklist.
 
 ---
 
@@ -117,9 +119,12 @@ Camera Preview / Photo
 
 ## 🧪 Training & Machine Learning Models
 
-Model training pipelines and conversion utilities can be found in [`training-notebooks/`](training-notebooks/):
-- **`BananaLeafModel_Final.ipynb`**: Complete dataset preprocessing, feature extraction, cross-validation, and `.bin` model export.
-- **`convert_pkl_to_bin.py`**: Exports Scikit-Learn Random Forest trees into the custom binary structure consumed by the Android app.
+Complete retraining guides and automation instructions are documented in [RETRAINING_GUIDE.md](RETRAINING_GUIDE.md).
+
+Model training pipelines and conversion utilities can be found in [`training-notebooks/`](training-notebooks/) and [`scripts/`](scripts/):
+- **`BananaLeafModel_Final.ipynb`**: Complete dataset preprocessing, feature extraction, cross-validation, and `.bin` model export in Google Colab.
+- **`scripts/train_pipeline.py`**: Automated end-to-end local training pipeline that balances datasets, trains models, writes `.bin` files, and updates Kotlin scalers automatically.
+- **`training-notebooks/convert_pkl_to_bin.py`**: Exports Scikit-Learn Random Forest trees into the custom binary structure consumed by the Android app.
 
 ---
 

@@ -400,6 +400,8 @@ The application uses an edge-computed, two-stage cascade classifier:
 
 ### Retraining the Models
 
+> 🔬 **Detailed Guide**: For end-to-end cloud instructions (Google Colab), local script execution, automated Antigravity AI prompts, and a manual checklist, refer to **[RETRAINING_GUIDE.md](RETRAINING_GUIDE.md)**.
+
 If you gather new field imagery or augment the training dataset:
 
 1. **Dataset Directory Structure**:
