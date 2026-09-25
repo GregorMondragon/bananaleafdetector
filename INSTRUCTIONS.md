@@ -8,8 +8,16 @@ This guide provides comprehensive instructions for running, operating, developin
 
 1. [Developer & Setup Instructions](#1-developer--setup-instructions)
    - [System Prerequisites](#system-prerequisites)
-   - [Opening & Building the Project](#opening--building-the-project)
-   - [Running on a Physical Android Device](#running-on-a-physical-android-device)
+   - [Setting Up & Developing in Google Antigravity (AGY)](#setting-up--developing-in-google-antigravity-agy)
+   - [Comprehensive USB Debugging Guide](#comprehensive-usb-debugging-guide)
+     - [Step 1: Enabling Developer Options (Brand-Specific Steps)](#step-1-enabling-developer-options-brand-specific-steps)
+     - [Step 2: Configuring USB Debugging & Brand Quirks](#step-2-configuring-usb-debugging--brand-quirks)
+     - [Step 3: Cable Selection & Connecting to PC](#step-3-cable-selection--connecting-to-pc)
+     - [Step 4: Authorizing the PC Connection](#step-4-authorizing-the-pc-connection)
+     - [Step 5: Verifying Device via ADB in Antigravity](#step-5-verifying-device-via-adb-in-antigravity)
+     - [Step 6: One-Command Build, Install & Launch via ADB](#step-6-one-command-build-install--launch-via-adb)
+   - [Wireless ADB Debugging (Cable-Free Testing)](#wireless-adb-debugging-cable-free-testing)
+   - [Opening & Building in Android Studio](#opening--building-in-android-studio)
    - [Running on an Android Emulator](#running-on-an-android-emulator)
    - [Rapid UI Development (Hot Reloading)](#rapid-ui-development-hot-reloading)
 2. [End-User & Field Scanning Manual](#2-end-user--field-scanning-manual)
@@ -36,55 +44,191 @@ Before building the application, ensure your workstation has the following insta
 
 | Tool | Minimum Version | Recommended Version |
 |---|---|---|
-| **Android Studio** | Ladybug (2024.2+) / Hedgehog | Latest Stable |
-| **Java Development Kit (JDK)** | JDK 17 | Eclipse Temurin 17 / Android Studio bundled JDK |
+| **Google Antigravity IDE / Android Studio** | Latest Stable | Antigravity IDE + Android Studio Ladybug |
+| **Java Development Kit (JDK)** | JDK 17 | Eclipse Temurin 17 / Bundled Android Studio JDK |
 | **Android SDK Build-Tools** | 34.0.0 | 34.0.0 |
-| **NDK / C++ CMake** | Included via Gradle | Managed automatically |
+| **Android Debug Bridge (ADB)** | Included in Android SDK Platform-Tools | Added to system `PATH` |
 | **Physical Phone / Emulator** | Android 7.0 (API 24) | Android 12–14 (API 31–34) |
 
 ---
 
-### Opening & Building the Project
+### Setting Up & Developing in Google Antigravity (AGY)
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/GregorMondragon/bananaleafdetector.git
-   cd bananaleafdetector
-   ```
-2. **Open Android Studio:**
-   - Click **File > Open...**
-   - Navigate to the `bananaleafdetector` directory and click **OK**.
-3. **Sync Gradle:**
-   - Wait for Android Studio to download dependencies (OpenCV Android SDK, CameraX, Room, Coroutines, Material 3).
-   - If prompted to set the JDK, select **Embedded JDK 17** (`File > Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JDK`).
-4. **Compile the debug build:**
-   - In Android Studio's terminal or PowerShell:
-     ```powershell
-     .\gradlew assembleDebug
-     ```
-   - The compiled APK will be output to:
-     `app/build/outputs/apk/debug/app-debug.apk`
+Google Antigravity is an AI-first IDE that allows you to code, refactor, build, and test Android apps collaboratively with AI agents.
+
+#### 1. Open the Project in Antigravity
+1. Launch **Google Antigravity**.
+2. Click **File > Open Folder...** (or press `Ctrl + O` / `Ctrl + K, Ctrl + O`).
+3. Select the project directory (`bananaleafdetector-main`).
+4. Antigravity will index the Kotlin source code, OpenCV wrappers, and XML resources.
+
+#### 2. Pair-Programming & Agent Workflows
+- **Chat & Edit**: Ask Antigravity to adjust OpenCV thresholds, refactor Kotlin use cases, design Material 3 layouts, or fix lint warnings.
+- **Slash Commands**:
+  - `/plan`: Request a step-by-step technical plan before implementing complex features.
+  - `/goal`: Run long-running, autonomous refactors or multi-file changes with thorough validation.
+- **Integrated Terminal**: Open the integrated terminal (`Ctrl + \`` or ``Ctrl + Shift + ` ``) to execute PowerShell, Git, Gradle, and ADB commands without switching windows.
+
+#### 3. Building the Project from Antigravity Terminal
+In the Antigravity integrated PowerShell terminal:
+```powershell
+# Compile debug APK
+.\gradlew.bat assembleDebug
+```
+The output APK is generated at:
+`app\build\outputs\apk\debug\app-debug.apk`
 
 ---
 
-### Running on a Physical Android Device
+### Comprehensive USB Debugging Guide
 
-> [!TIP]
-> Testing on a physical Android phone provides the best performance for CameraX preview streams and OpenCV frame analysis.
+Connecting a physical Android phone via USB debugging gives you direct, real-time testing of the camera sensor, OpenCV image processing, and on-device ML inference.
 
-1. **Enable Developer Options on your phone:**
-   - Open **Settings > About Phone**.
-   - Tap **Build Number** 7 times until you see *"You are now a developer!"*.
-2. **Enable USB Debugging:**
-   - Go to **Settings > System > Developer Options**.
-   - Toggle **USB Debugging** to **ON**.
-3. **Connect to your PC:**
-   - Connect via USB cable.
-   - Accept the prompt on your phone screen: *"Allow USB debugging from this computer?"* (check *Always allow*).
-4. **Launch from Android Studio:**
-   - Select your connected phone in the device selector dropdown (top toolbar).
-   - Click the green **Run 'app'** button (or press `Shift + F10`).
-   - Grant **Camera Permission** when the app launches for the first time.
+```
+┌─────────────────┐       USB Data Cable      ┌──────────────────┐
+│  Workstation /  │ ═════════════════════════ │  Android Device  │
+│   Antigravity   │   ADB Daemon (Port 5037)  │ (Developer Mode) │
+└─────────────────┘                           └──────────────────┘
+```
+
+#### Step 1: Enabling Developer Options (Brand-Specific Steps)
+
+By default, Developer Options are hidden on Android. Follow the instructions for your device's brand:
+
+- **Samsung Galaxy (One UI)**:
+  1. Open **Settings > About Phone > Software Information**.
+  2. Tap **Build number** rapidly **7 times**.
+  3. Enter your phone's PIN/Pattern when prompted. You will see: *"Developer mode has been enabled"*.
+- **Xiaomi / Redmi / POCO (HyperOS / MIUI)**:
+  1. Open **Settings > About Phone**.
+  2. Tap **OS version** (or **MIUI version**) rapidly **7 times**.
+  3. You will see: *"You are now a developer!"*.
+- **Oppo / Realme / OnePlus (ColorOS / OxygenOS)**:
+  1. Open **Settings > About Device > Version**.
+  2. Tap **Build number** (or **Version number**) rapidly **7 times**.
+- **Google Pixel / Motorola / Stock Android**:
+  1. Open **Settings > About Phone**.
+  2. Scroll down and tap **Build number** rapidly **7 times**.
+- **Vivo / iQOO (FuntouchOS / OriginOS)**:
+  1. Open **Settings > About Phone > Software Information**.
+  2. Tap **Build number** 7 times.
+
+---
+
+#### Step 2: Configuring USB Debugging & Brand Quirks
+
+Now open the newly unlocked **Developer Options** menu:
+- Navigate to **Settings > System > Developer Options** (on Samsung/Xiaomi/Oppo, it may appear under **Settings > Additional Settings > Developer Options**).
+- Toggle **Developer Options** to **ON**.
+- Scroll to the **Debugging** section and toggle **USB Debugging** to **ON**.
+
+> [!WARNING]
+> **Crucial Brand-Specific Settings (Avoid Build Failures):**
+> 
+> - **Xiaomi / Redmi / POCO (MIUI / HyperOS)**:
+>   - Enable **"Install via USB"** (allows ADB to install debug APKs).
+>   - Enable **"USB debugging (Security settings)"** (requires Mi account login and SIM card inserted). *Without this, ADB install will fail with `INSTALL_FAILED_USER_RESTRICTED`*.
+> - **Oppo / Realme (ColorOS)**:
+>   - Enable **"Disable Permission Monitoring"** if ADB prompts with `INSTALL_FAILED_VERIFICATION_FAILURE`.
+> - **Samsung**:
+>   - If installation hangs, disable **"Auto Blocker"** in *Settings > Security and Privacy > Auto Blocker*.
+
+---
+
+#### Step 3: Cable Selection & Connecting to PC
+
+1. **Use a High-Quality Data Cable**:
+   - Ensure your USB cable supports **data transfer**, not just charging. (If your PC makes no sound and ADB does not detect the phone, the cable is likely charge-only).
+2. **USB Connection Mode**:
+   - Plug the phone into a USB 3.0/2.0 port on your computer.
+   - Swipe down the notification shade on your phone, tap **USB charging this device**, and switch to **File Transfer (MTP)** or **Transfer files**.
+
+---
+
+#### Step 4: Authorizing the PC Connection
+
+1. Unlock your phone screen.
+2. A security dialog will pop up:
+   > **"Allow USB debugging?"**
+   > *The computer's RSA key fingerprint is: XX:XX:XX...*
+3. Check the box: ☑ **"Always allow from this computer"**.
+4. Tap **Allow** or **OK**.
+
+---
+
+#### Step 5: Verifying Device via ADB in Antigravity
+
+In the Google Antigravity integrated terminal, run:
+```powershell
+adb devices
+```
+
+**Output Scenarios:**
+- ✅ **Connected & Ready**:
+  ```
+  List of devices attached
+  RFCW10ABCDE    device
+  ```
+- ⚠️ **Unauthorized**:
+  ```
+  List of devices attached
+  RFCW10ABCDE    unauthorized
+  ```
+  *Solution*: Unlock your phone, check your screen, and tap **Allow** on the RSA key prompt.
+- ❌ **No Devices Listed**:
+  ```
+  List of devices attached
+  ```
+  *Solution*: Try a different USB port, reconnect the cable, or restart the ADB server:
+  ```powershell
+  adb kill-server
+  adb start-server
+  ```
+
+---
+
+#### Step 6: One-Command Build, Install & Launch via ADB
+
+Once your device shows as `device`, run this single command in Antigravity to build, push to your phone, and launch the app immediately:
+
+```powershell
+.\gradlew.bat installDebug; adb shell am start -n com.thesis.bananaleaf/.SplashActivity
+```
+
+The app will compile, install directly over USB, and immediately open to the camera scanner on your phone!
+
+---
+
+### Wireless ADB Debugging (Cable-Free Testing)
+
+Once you've connected via USB once, you can untether your phone and debug over your local Wi-Fi network:
+
+1. Ensure your computer and phone are connected to the **same Wi-Fi network**.
+2. With the phone still plugged into USB, set ADB to TCP/IP mode:
+   ```powershell
+   adb tcpip 5555
+   ```
+3. Find your phone's local IP address:
+   - On your phone: **Settings > Wi-Fi > [Your Wi-Fi Name] > IP Address** (e.g., `192.168.1.45`).
+4. Connect wirelessly:
+   ```powershell
+   adb connect 192.168.1.45:5555
+   ```
+5. **Unplug the USB cable!**
+6. Verify with `adb devices` — you will see `192.168.1.45:5555 device`.
+7. You can now run `.\gradlew installDebug` or `.\scripts\hot_reload.ps1` completely over the air.
+
+---
+
+### Opening & Building in Android Studio
+
+If you prefer using the full Android Studio IDE alongside Antigravity:
+
+1. Open Android Studio.
+2. Select **File > Open...** and select `bananaleafdetector-main`.
+3. Wait for Gradle sync to finish.
+4. Select your USB or Wireless connected device from the top device dropdown.
+5. Click **Run 'app'** (`Shift + F10`).
 
 ---
 
@@ -104,7 +248,7 @@ If testing without a physical phone:
 
 For rapid layout and UI tweaking without manual reinstallation:
 1. Ensure your device is connected with `adb devices`.
-2. Open PowerShell in the project root and run:
+2. Open PowerShell in Antigravity and run:
    ```powershell
    .\scripts\hot_reload.ps1
    ```
