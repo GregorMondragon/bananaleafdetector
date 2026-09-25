@@ -1,0 +1,49 @@
+{
+  "leaf_feature_names": [
+    "veg_ratio",
+    "circularity",
+    "largest_blob_ratio",
+    "aspect",
+    "extent",
+    "hue_mean",
+    "hue_std",
+    "sat_mean",
+    "val_mean",
+    "edge_density"
+  ],
+  "disease_feature_names": [
+    "H_mean",
+    "H_std",
+    "H_skew",
+    "S_mean",
+    "S_std",
+    "S_skew",
+    "V_mean",
+    "V_std",
+    "V_skew",
+    "glcm_contrast",
+    "glcm_dissimilarity",
+    "glcm_homogeneity",
+    "glcm_energy",
+    "glcm_correlation",
+    "glcm_ASM"
+  ],
+  "disease_order": [
+    "Cordana",
+    "Sigatoka",
+    "Pestalotiopsis"
+  ],
+  "leaf_gate_threshold": 0.55,
+  "disease_threshold": 0.38,
+  "img_size": 200,
+  "hsv_lower": [
+    15,
+    25,
+    25
+  ],
+  "hsv_upper": [
+    95,
+    255,
+    255
+  ]
+}

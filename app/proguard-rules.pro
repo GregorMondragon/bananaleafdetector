@@ -1,0 +1,4 @@
+-keep class org.opencv.** { *; }
+-keepclassmembers class org.opencv.** { *; }
+-dontwarn org.opencv.**
+-keep class android.graphics.Bitmap { *; }

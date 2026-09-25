@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BANANA LEAF DETECTOR</string>
+    <string name="flash_toggle">Toggle torch</string>
+    <string name="flash_on">Turn torch off</string>
+    <string name="flash_off">Turn torch on</string>
+    <string name="flash_unavailable">This device does not have a camera torch</string>
+    <string name="leaf_confidence_format">%.0f%%</string>
+    <string name="instruction_text">Center the leaf and tap to scan</string>
+    <string name="capture_button_text">Scan</string>
+    <string name="camera_permission_required">Camera permission is required to scan leaves</string>
+    <string name="opencv_init_failed">Failed to initialize OpenCV</string>
+    <string name="camera_start_failed">Could not start camera: %1$s</string>
+    <string name="capture_failed">Photo capture failed: %1$s</string>
+    <string name="processing_failed">Could not process the image: %1$s</string>
+
+    <!-- Result screen -->
+    <string name="summary_header_healthy">Healthy Leaf</string>
+    <string name="summary_header_single_label">SINGLE LABEL: %1$s • %2$.0f%% confidence</string>
+    <string name="summary_header_multi">%1$d possible diseases detected</string>
+    <string name="multi_disease_note">Each disease below was detected independently, so more than one can show up on the same leaf — this is expected for a leaf with overlapping or co-occurring infections, not a mistake. Treat each as a separate finding with its own confidence.</string>
+    <string name="moderate_confidence_note">These are model estimates, not a lab diagnosis. For borderline percentages, consider rescanning with a plain background and even lighting, or confirming with your agricultural extension office.</string>
+    <string name="details_view_warning">Full Details View\nThis page shows the scanned leaf, every detected disease, confidence scores, descriptions, and recommendations. These are model estimates, not a lab diagnosis.</string>
+    <string name="healthy_next_step">No Cordana, Pestalotiopsis, or Sigatoka signal was strong enough to flag on this leaf.</string>
+    <string name="confidence_chip_format">%1$.0f%%</string>
+    <string name="recommendations_header">Recommendations</string>
+    <string name="show_details">Show details</string>
+    <string name="hide_details">Hide details</string>
+    <string name="scan_again_button">Scan Another Leaf</string>
+    <string name="disease_details_title">Disease Details</string>
+    <string name="detection_confidence_format">Detection confidence: %1$s%%</string>
+    <string name="recommendation_header">Recommendation</string>
+    <string name="healthy_leaf_care_header">Healthy Leaf Care</string>
+    <string name="healthy_prevention_details">• Continue routine monitoring.\n\n• Maintain proper spacing and drainage.\n\n• Remove old or dead leaves around the plant.</string>
+    <string name="disease_prevention_details">• Monitor nearby leaves regularly for new symptoms.\n\n• Keep the field clean and improve airflow and drainage.\n\n• Follow locally approved disease-management guidance.</string>
+    <string name="treatment_recommendation_header">Treatment Recommendation</string>
+    <string name="prevention_management_header">Prevention / Management</string>
+    <string name="identified_symptoms_header">Identified Symptoms</string>
+
+</resources>

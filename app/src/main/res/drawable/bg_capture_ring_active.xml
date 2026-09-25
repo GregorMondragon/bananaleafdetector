@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Outer concentric pro camera ring — leaf detected active state -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="#332E8B57" />
+    <stroke
+        android:width="4dp"
+        android:color="#4CAF50" />
+</shape>

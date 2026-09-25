@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 
+        Overriding Material 3 NavigationBarItemView dimensions to tighten
+        the awkward gap between the icon/active indicator and the text label.
+        Default Material 3 gap is 4-8dp which created a detached 11dp+ void.
+        Setting to 2dp creates an intentional, cohesive 4-5dp optical gap.
+    -->
+    <!-- Material 3 Bottom Navigation balanced spacing -->
+    <dimen name="m3_navigation_item_active_indicator_label_padding">1dp</dimen>
+    <dimen name="m3_navigation_item_icon_padding">0dp</dimen>
+    <dimen name="design_navigation_item_icon_padding">0dp</dimen>
+    <dimen name="design_bottom_navigation_margin">0dp</dimen>
+    <dimen name="design_bottom_navigation_label_padding">0dp</dimen>
+    <dimen name="m3_navigation_bar_item_indicator_height">28dp</dimen>
+    <dimen name="m3_navigation_bar_height">64dp</dimen>
+</resources>

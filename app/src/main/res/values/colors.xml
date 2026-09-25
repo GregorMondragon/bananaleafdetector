@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- BASE                                                     -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- PRIMARY GREEN PALETTE                                    -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="leaf_green">#2E8B57</color>
+    <color name="leaf_green_dark">#155D36</color>
+    <color name="leaf_green_light">#4CAF50</color>
+    <color name="leaf_green_surface">#F0FAF4</color>
+    <color name="leaf_green_ripple">#1A2E8B57</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- STATUS COLORS                                            -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="status_healthy">#27AE60</color>
+    <color name="status_healthy_bg">#E8F8EF</color>
+    <color name="status_healthy_text">#155D36</color>
+    <color name="status_disease">#E67E22</color>
+    <color name="status_disease_bg">#FEF3E9</color>
+    <color name="status_disease_text">#7D3800</color>
+    <color name="status_critical">#E74C3C</color>
+    <color name="status_critical_bg">#FEECEB</color>
+    <color name="status_uncertain">#F39C12</color>
+    <color name="status_uncertain_bg">#FEF9E7</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- APP BACKGROUNDS                                          -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="background_main">#F4FAF6</color>
+    <color name="splash_background">#F0FAF4</color>
+    <color name="section_bg">#F4FAF6</color>
+    <color name="card_white">#F0FAF4</color>
+    <color name="panel_white">#2E8B57</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- TEXT COLORS                                              -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#5C6B63</color>
+    <color name="text_hint">#9EB0A4</color>
+    <color name="text_on_dark">#FFFFFFFF</color>
+    <color name="card_label_green">#155D36</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- BOTTOM NAVIGATION                                        -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="nav_bg">#FFFFFF</color>
+    <color name="nav_active">#2E8B57</color>
+    <color name="nav_inactive">#9EB0A4</color>
+    <color name="nav_indicator">#E8F5EC</color>
+    <color name="nav_indicator_dark">#552E8B57</color>
+    <color name="nav_indicator_light">#D4EEDF</color>
+    <color name="nav_icon">#9EB0A4</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CAMERA / SCAN UI                                         -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="camera_overlay">#66000000</color>
+    <color name="frame_healthy">#4CAF50</color>
+    <color name="frame_none">#EF5350</color>
+    <color name="scan_green">#6FF3A7</color>
+    <color name="scan_line_color">#4CAF50</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CHIP / BADGE COLORS                                      -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="chip_green_bg">#EAF7EF</color>
+    <color name="chip_text">#315D45</color>
+    <color name="chip_bg">#F1F1F1</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- DIVIDERS / BORDERS                                       -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="divider">#E8F0EB</color>
+    <color name="garden_divider">#E4E9E5</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- GARDEN HISTORY CARDS                                     -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="garden_date_text">#1B1B1B</color>
+    <color name="garden_delete_red">#C0392B</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- CARD SHADOWS (Deep, prominent, premium floating depth)   -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="card_shadow_ambient">#4D102216</color>
+    <color name="card_shadow_spot">#70102216</color>
+
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <!-- LEGACY / COMPAT (kept for existing drawables)            -->
+    <!-- ═══════════════════════════════════════════════════════ -->
+    <color name="moderate_confidence_bg">#FFF8E1</color>
+    <color name="moderate_confidence_text">#8D6E00</color>
+    <color name="mixed_note_bg">#FFEBEE</color>
+    <color name="mixed_note_text">#B71C1C</color>
+    <color name="status_disease_bg_legacy">#F2C230</color>
+</resources>

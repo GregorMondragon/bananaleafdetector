@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Banana leaf adaptive icon foreground.
+    Leaf shape scaled from ic_leaf_shutter (24×24 → 108×108, scale factor 4.5×).
+    Original shutter path 1: M20,4C11,4.3 4.5,9.6 3.5,19.4c5,0.5 10.4,-1.2 13.9,-4.6C21,11.2 22.8,7.7 20,4z
+    Original shutter path 2 (vein): M5.3,17.8C10,13.1 14.3,9.1 20.5,4C13.9,11.3 9.6,15.4 5.9,19.2z
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Main leaf body -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M90,18C49.5,19.35 20.25,43.2 15.75,87.3c22.5,2.25 46.8,-5.4 62.55,-20.7C92.25,50.4 102.6,34.65 90,18z" />
+    <!-- Leaf vein -->
+    <path
+        android:fillColor="#CCFFFFFF"
+        android:pathData="M23.85,80.1C45,58.95 64.35,40.95 92.25,18C62.55,50.85 43.2,69.3 26.55,86.4z" />
+</vector>

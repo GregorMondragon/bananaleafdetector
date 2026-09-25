@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splash_background">
+
+    <!-- Centered logo container with glow circle -->
+    <FrameLayout
+        android:id="@+id/logoContainer"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:clipChildren="true">
+
+        <View
+            android:id="@+id/glowCircle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/glow_circle" />
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="330dp"
+            android:layout_height="500dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_launcher_foreground"
+            android:contentDescription="@string/app_name" />
+
+        <View
+            android:id="@+id/scanLine"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_gravity="top"
+            android:background="@color/scan_line_color" />
+
+    </FrameLayout>
+
+    <!-- App name below logo -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="240dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/splashAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/leaf_green_dark"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.04"
+            android:alpha="0" />
+
+    </LinearLayout>
+
+</FrameLayout>
