@@ -2,6 +2,8 @@
 
 An Android mobile application for real-time detection and multi-label classification of banana leaf diseases using edge computer vision and on-device machine learning models.
 
+> 📘 **Looking for the step-by-step setup guide and field manual?** Check out the complete [INSTRUCTIONS.md](INSTRUCTIONS.md).
+
 ---
 
 ## 📌 Overview
